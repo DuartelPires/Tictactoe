@@ -55,12 +55,13 @@ void playerMoves(char board[3][3], char player, int *gameOver, int *scoreX, int 
 
         int winner = checkWinner(board, row, col);
         if (winner != 0) {
-            printWinner(winner);
             if (winner == 1) {
                 (*scoreX)++;  
             } else if (winner == 2) {
                 (*scoreY)++;  
             }
+            printBoard(board, *scoreX, *scoreY);
+            printWinner(winner);
             *gameOver = 1;
         }
     } else {
